@@ -17,10 +17,10 @@ export const protect = expressAsyncHandler(async (req, res, next) => {
         throw new Error("User not found");
       }
 
-      if (user.status !== "Approved") {
-        res.status(403);
-        throw new Error("Access denied. Account not approved.");
-      }
+      // if (user.status !== "Approved") {
+      //   res.status(403);
+      //   throw new Error("Access denied. Account not approved.");
+      // }
 
       req.User = user;
       next();

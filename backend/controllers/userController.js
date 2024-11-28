@@ -15,6 +15,8 @@ export const authUser = expressAsyncHandler(async (req, res) => {
       lastName: user.lastName,
       image: user.image,
       phoneNumber: user.phoneNumber,
+      status: user.status,
+      role: user.role,
       email: user.email,
     });
   } else {
@@ -24,7 +26,7 @@ export const authUser = expressAsyncHandler(async (req, res) => {
 });
 
 export const createUser = expressAsyncHandler(async (req, res) => {
-  const { firstName, lastName, image, phoneNumber,status, email, password } = req.body;
+  const { firstName, lastName, image, phoneNumber,status,role, email, password } = req.body;
 
   if (!email || !password) {
     res.status(400);
@@ -43,6 +45,7 @@ export const createUser = expressAsyncHandler(async (req, res) => {
       image,
       phoneNumber,
       status,
+      role,
       email,
       password,
     });
@@ -55,6 +58,7 @@ export const createUser = expressAsyncHandler(async (req, res) => {
         image: newUser.image,
         phoneNumber: newUser.phoneNumber,
         status: newUser.status,
+        role: newUser.role,
         email: newUser.email,
       });
     } else {
